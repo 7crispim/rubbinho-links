@@ -133,25 +133,6 @@
   }
   a.linkbtn:hover .linkbtn-arrow{ transform:translateX(3px); opacity:1; }
 
-  /* estado "em breve" — visualmente intencional, não quebrado */
-  .linkbtn--soon{
-    background: rgba(255,255,255,0.035);
-    border-style:dashed; border-color:rgba(217,164,65,0.3);
-    box-shadow:none; cursor:default;
-  }
-  .linkbtn--soon .linkbtn-icon{
-    background:rgba(255,255,255,0.07); border-color:rgba(217,164,65,0.3);
-    filter:grayscale(0.35);
-  }
-  .linkbtn--soon .linkbtn-title{ color:var(--paper-dim); }
-  .soon-tag{
-    margin-left:auto; flex:none;
-    font-size:0.62rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--gold-soft);
-    border:1px solid rgba(217,164,65,0.45); border-radius:999px;
-    padding:0.25rem 0.55rem; white-space:nowrap;
-  }
-
   /* ---- galeria de pratos ---- */
   .gallery-head{
     width:100%; margin:2.3rem 0 0.9rem;
@@ -232,17 +213,25 @@
       <svg class="linkbtn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
     </a>
 
-    <!-- TROCAR: quando o cardápio digital for publicado, virar <a href="URL"> e remover .linkbtn--soon + .soon-tag -->
-    <div class="linkbtn linkbtn--soon up" style="--d:5" aria-disabled="true">
+    <a class="linkbtn up" style="--d:5" href="https://wa.me/5561984390752?text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido%20na%20Cozinha%20do%20Rubbinho" target="_blank" rel="noopener">
       <span class="linkbtn-icon" aria-hidden="true">🍽️</span>
+      <span class="linkbtn-text">
+        <span class="linkbtn-title">Faça um Pedido</span>
+        <span class="linkbtn-sub">Peça direto pelo WhatsApp</span>
+      </span>
+      <svg class="linkbtn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <a class="linkbtn up" style="--d:6" href="https://rubbinho-lp.vercel.app/" target="_blank" rel="noopener">
+      <span class="linkbtn-icon" aria-hidden="true">📖</span>
       <span class="linkbtn-text">
         <span class="linkbtn-title">Cardápio</span>
         <span class="linkbtn-sub">Pratos, parmegianas, bebidas e marmitex</span>
       </span>
-      <span class="soon-tag">Em breve</span>
-    </div>
+      <svg class="linkbtn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
 
-    <a class="linkbtn up" style="--d:6" href="https://wa.me/5561984390752?text=Ol%C3%A1%2C%20quero%20entrar%20no%20grupo%20de%20marmitas%20da%20Cozinha%20do%20Rubbinho" target="_blank" rel="noopener">
+    <a class="linkbtn up" style="--d:7" href="https://wa.me/5561984390752?text=Ol%C3%A1%2C%20quero%20entrar%20no%20grupo%20de%20marmitas%20da%20Cozinha%20do%20Rubbinho" target="_blank" rel="noopener">
       <span class="linkbtn-icon" aria-hidden="true">💬</span>
       <span class="linkbtn-text">
         <span class="linkbtn-title">Entre no Grupo de Marmitas</span>
@@ -252,27 +241,27 @@
     </a>
   </nav>
 
-  <h2 class="gallery-head up" style="--d:7">Da nossa cozinha</h2>
+  <h2 class="gallery-head up" style="--d:8">Da nossa cozinha</h2>
   <div class="gallery">
-    <figure class="shot up" style="--d:8">
+    <figure class="shot up" style="--d:9">
       <img src="img/picanha.webp" alt="Picanha com arroz, feijão, batata frita e salada" width="900" height="900" loading="lazy">
       <figcaption>Picanha</figcaption>
     </figure>
-    <figure class="shot up" style="--d:9">
+    <figure class="shot up" style="--d:10">
       <img src="img/parmegiana-carne.webp" alt="Parmegiana de carne com molho, queijo, arroz e fritas" width="900" height="900" loading="lazy">
       <figcaption>Parmegiana de carne</figcaption>
     </figure>
-    <figure class="shot up" style="--d:10">
+    <figure class="shot up" style="--d:11">
       <img src="img/frango-simples.webp" alt="Filé de frango grelhado com arroz e purê" width="900" height="900" loading="lazy">
       <figcaption>Filé de frango</figcaption>
     </figure>
-    <figure class="shot up" style="--d:11">
+    <figure class="shot up" style="--d:12">
       <img src="img/marmitex.webp" alt="Marmitex pronto para viagem" width="1200" height="1200" loading="lazy">
       <figcaption>Marmitex</figcaption>
     </figure>
   </div>
 
-  <div class="social up" style="--d:12">
+  <div class="social up" style="--d:13">
     <a class="ig" href="https://www.instagram.com/rubbinhogrill/" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="2" y="2" width="20" height="20" rx="5.5"/>
@@ -283,7 +272,7 @@
     </a>
   </div>
 
-  <footer class="up" style="--d:13">
+  <footer class="up" style="--d:14">
     <span class="addr">Galeria do Edifício Green Park Center<br>Rua 20 Norte — Águas Claras, Brasília&nbsp;-&nbsp;DF</span>
     © 2026 Cozinha do Rubbinho
   </footer>
