@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cozinha do Rubbinho</title>
+<meta name="description" content="Links da Cozinha do Rubbinho — comida caseira em Águas Claras, DF. Endereço, cardápio, grupo de marmitas e Instagram.">
+<meta name="theme-color" content="#17110d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #17110d;
+    --ink-2: #241a13;
+    --ink-3: #2e2118;
+    --paper: #faf3e6;
+    --paper-dim: #e6d9bf;
+    --red: #7c1b22;
+    --red-bright: #a4212a;
+    --gold: #d9a441;
+    --gold-soft: #f0cf8f;
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ font-size: clamp(15px, 0.6vw + 13px, 17.5px); }
+  body{
+    margin:0;
+    min-height:100svh;
+    background:
+      radial-gradient(90% 55% at 50% -8%, #3a2a1a 0%, rgba(58,42,26,0) 62%),
+      radial-gradient(120% 80% at 50% 105%, #24170f 0%, rgba(36,23,15,0) 55%),
+      var(--ink);
+    background-attachment: fixed;
+    color: var(--paper);
+    font-family:'Work Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2{ margin:0; text-wrap:balance; }
+  :focus-visible{ outline:3px solid var(--gold); outline-offset:3px; border-radius:0.6rem; }
+
+  .wrap{
+    width:100%; max-width:27rem;
+    margin:0 auto;
+    padding: 2.6rem 1.3rem 2.4rem;
+    display:flex; flex-direction:column; align-items:center;
+  }
+
+  /* ---- entrada em sequência (à prova de falha: só some com JS ativo) ---- */
+  .js .up{ opacity:0; transform:translateY(1.1rem); }
+  .js .up.in{
+    opacity:1; transform:none;
+    transition: opacity .65s var(--ease), transform .65s var(--ease);
+    transition-delay: calc(var(--d,0) * 80ms);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .js .up, .js .up.in{ opacity:1; transform:none; transition:none; }
+  }
+
+  /* ---- topo ---- */
+  .logo-glow{ position:relative; display:block; width:min(15.5rem, 68%); }
+  .logo-glow::before{
+    content:""; position:absolute; left:50%; top:52%;
+    width:150%; height:150%; transform:translate(-50%,-50%);
+    background: radial-gradient(circle, rgba(217,164,65,0.22) 0%, rgba(217,164,65,0) 68%);
+    pointer-events:none;
+  }
+  .logo-glow img{
+    position:relative; width:100%; height:auto;
+    filter: drop-shadow(0 0.7rem 1.4rem rgba(0,0,0,0.6));
+  }
+
+  .brand-name{
+    margin-top:1rem;
+    font-family:'Anton', sans-serif;
+    font-size:1.55rem; letter-spacing:0.055em; text-transform:uppercase;
+    color:var(--paper); text-align:center; line-height:1.05;
+  }
+  .brand-tag{
+    margin-top:0.15rem;
+    font-family:'Caveat', cursive; font-size:1.65rem;
+    color:var(--gold-soft); transform:rotate(-1.5deg); line-height:1;
+  }
+  .chip{
+    margin-top:1rem;
+    display:inline-flex; align-items:center; gap:0.4rem;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(217,164,65,0.42);
+    padding:0.42rem 1rem; border-radius:999px;
+    font-size:0.76rem; letter-spacing:0.07em; color:var(--paper-dim);
+  }
+
+  /* ---- botões principais ---- */
+  .links{
+    width:100%; margin-top:2rem;
+    display:flex; flex-direction:column; gap:0.8rem;
+  }
+  .linkbtn{
+    display:flex; align-items:center; gap:0.9rem;
+    width:100%; padding:0.95rem 1.1rem;
+    background: linear-gradient(180deg, var(--ink-3) 0%, var(--ink-2) 100%);
+    border:1px solid rgba(217,164,65,0.38);
+    border-radius:0.95rem;
+    box-shadow: 0 0.7rem 1.5rem -0.8rem rgba(0,0,0,0.85);
+    text-align:left;
+    transition: transform .22s var(--ease), border-color .22s var(--ease), box-shadow .22s var(--ease), background .22s var(--ease);
+  }
+  a.linkbtn:hover, a.linkbtn:focus-visible{
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    background: linear-gradient(180deg, #3a2a1c 0%, var(--ink-3) 100%);
+    box-shadow: 0 1.1rem 2rem -0.8rem rgba(0,0,0,0.9);
+  }
+  a.linkbtn:active{ transform: translateY(-1px); }
+
+  .linkbtn-icon{
+    flex:none; width:2.7rem; height:2.7rem; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background: radial-gradient(circle at 35% 30%, var(--red-bright), var(--red));
+    border:1px solid rgba(217,164,65,0.55);
+    font-size:1.15rem; line-height:1;
+  }
+  .linkbtn-text{ display:flex; flex-direction:column; gap:0.1rem; min-width:0; }
+  .linkbtn-title{ font-weight:700; font-size:0.98rem; color:var(--paper); }
+  .linkbtn-sub{ font-size:0.75rem; color:var(--paper-dim); opacity:0.75; }
+  .linkbtn-arrow{
+    margin-left:auto; flex:none; color:var(--gold);
+    opacity:0.6; transition: transform .22s var(--ease), opacity .22s var(--ease);
+  }
+  a.linkbtn:hover .linkbtn-arrow{ transform:translateX(3px); opacity:1; }
+
+  /* estado "em breve" — visualmente intencional, não quebrado */
+  .linkbtn--soon{
+    background: rgba(255,255,255,0.035);
+    border-style:dashed; border-color:rgba(217,164,65,0.3);
+    box-shadow:none; cursor:default;
+  }
+  .linkbtn--soon .linkbtn-icon{
+    background:rgba(255,255,255,0.07); border-color:rgba(217,164,65,0.3);
+    filter:grayscale(0.35);
+  }
+  .linkbtn--soon .linkbtn-title{ color:var(--paper-dim); }
+  .soon-tag{
+    margin-left:auto; flex:none;
+    font-size:0.62rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold-soft);
+    border:1px solid rgba(217,164,65,0.45); border-radius:999px;
+    padding:0.25rem 0.55rem; white-space:nowrap;
+  }
+
+  /* ---- galeria de pratos ---- */
+  .gallery-head{
+    width:100%; margin:2.3rem 0 0.9rem;
+    display:flex; align-items:center; gap:0.7rem;
+    font-family:'Anton', sans-serif; font-size:0.82rem;
+    letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-soft);
+  }
+  .gallery-head::before, .gallery-head::after{
+    content:""; height:1px; flex:1; background:rgba(217,164,65,0.3);
+  }
+  .gallery{
+    width:100%;
+    display:grid; grid-template-columns:1fr 1fr; gap:0.7rem;
+  }
+  .shot{
+    margin:0;                 /* <figure> tem margin padrão do UA e encolhe a célula da grade */
+    position:relative; border-radius:0.85rem; overflow:hidden;
+    border:1px solid rgba(217,164,65,0.28);
+    aspect-ratio:1/1; background:var(--ink-2);
+  }
+  .shot img{
+    width:100%; height:100%; object-fit:cover;
+    transition: transform .55s var(--ease);
+  }
+  .shot:hover img{ transform:scale(1.07); }
+  .shot figcaption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:1.5rem 0.6rem 0.55rem;
+    background:linear-gradient(180deg, rgba(23,17,13,0) 0%, rgba(23,17,13,0.9) 62%);
+    font-family:'Caveat', cursive; font-size:1.15rem; line-height:1.1;
+    color:var(--gold-soft); text-align:center;
+  }
+
+  /* ---- instagram ---- */
+  .social{ margin-top:2.1rem; display:flex; justify-content:center; }
+  .ig{
+    display:inline-flex; align-items:center; gap:0.6rem;
+    padding:0.7rem 1.3rem; border-radius:999px;
+    border:1px solid rgba(217,164,65,0.4);
+    background:rgba(255,255,255,0.045);
+    font-weight:600; font-size:0.86rem; color:var(--paper);
+    transition: transform .22s var(--ease), border-color .22s var(--ease), background .22s var(--ease);
+  }
+  .ig:hover, .ig:focus-visible{
+    transform:translateY(-2px); border-color:var(--gold);
+    background:rgba(255,255,255,0.09);
+  }
+  .ig svg{ width:1.2rem; height:1.2rem; flex:none; }
+
+  /* ---- rodapé ---- */
+  footer{
+    margin-top:2.2rem; text-align:center;
+    font-size:0.72rem; line-height:1.6; color:rgba(250,243,230,0.45);
+  }
+  footer .addr{ color:var(--paper-dim); opacity:0.75; display:block; margin-bottom:0.5rem; }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<main class="wrap">
+
+  <div class="logo-glow up" style="--d:0">
+    <img src="img/logo.webp" alt="Cozinha do Rubbinho" width="900" height="507" fetchpriority="high">
+  </div>
+
+  <h1 class="brand-name up" style="--d:1">Cozinha do Rubbinho</h1>
+  <p class="brand-tag up" style="--d:2">comida caseira</p>
+  <p class="chip up" style="--d:3">📍 Águas Claras, DF</p>
+
+  <nav class="links" aria-label="Links principais">
+    <a class="linkbtn up" style="--d:4" href="https://share.google/F5ouCm4ZDeyrWC4mG" target="_blank" rel="noopener">
+      <span class="linkbtn-icon" aria-hidden="true">📍</span>
+      <span class="linkbtn-text">
+        <span class="linkbtn-title">Endereço</span>
+        <span class="linkbtn-sub">Green Park Center — ver rota no mapa</span>
+      </span>
+      <svg class="linkbtn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <!-- TROCAR: quando o cardápio digital for publicado, virar <a href="URL"> e remover .linkbtn--soon + .soon-tag -->
+    <div class="linkbtn linkbtn--soon up" style="--d:5" aria-disabled="true">
+      <span class="linkbtn-icon" aria-hidden="true">🍽️</span>
+      <span class="linkbtn-text">
+        <span class="linkbtn-title">Cardápio</span>
+        <span class="linkbtn-sub">Pratos, parmegianas, bebidas e marmitex</span>
+      </span>
+      <span class="soon-tag">Em breve</span>
+    </div>
+
+    <a class="linkbtn up" style="--d:6" href="https://wa.me/5561984390752?text=Ol%C3%A1%2C%20quero%20entrar%20no%20grupo%20de%20marmitas%20da%20Cozinha%20do%20Rubbinho" target="_blank" rel="noopener">
+      <span class="linkbtn-icon" aria-hidden="true">💬</span>
+      <span class="linkbtn-text">
+        <span class="linkbtn-title">Entre no Grupo de Marmitas</span>
+        <span class="linkbtn-sub">Receba o prato do dia no WhatsApp</span>
+      </span>
+      <svg class="linkbtn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+  </nav>
+
+  <h2 class="gallery-head up" style="--d:7">Da nossa cozinha</h2>
+  <div class="gallery">
+    <figure class="shot up" style="--d:8">
+      <img src="img/picanha.webp" alt="Picanha com arroz, feijão, batata frita e salada" width="900" height="900" loading="lazy">
+      <figcaption>Picanha</figcaption>
+    </figure>
+    <figure class="shot up" style="--d:9">
+      <img src="img/parmegiana-carne.webp" alt="Parmegiana de carne com molho, queijo, arroz e fritas" width="900" height="900" loading="lazy">
+      <figcaption>Parmegiana de carne</figcaption>
+    </figure>
+    <figure class="shot up" style="--d:10">
+      <img src="img/frango-simples.webp" alt="Filé de frango grelhado com arroz e purê" width="900" height="900" loading="lazy">
+      <figcaption>Filé de frango</figcaption>
+    </figure>
+    <figure class="shot up" style="--d:11">
+      <img src="img/marmitex.webp" alt="Marmitex pronto para viagem" width="1200" height="1200" loading="lazy">
+      <figcaption>Marmitex</figcaption>
+    </figure>
+  </div>
+
+  <div class="social up" style="--d:12">
+    <a class="ig" href="https://www.instagram.com/rubbinhogrill/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5.5"/>
+        <circle cx="12" cy="12" r="4.2"/>
+        <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/>
+      </svg>
+      @rubbinhogrill
+    </a>
+  </div>
+
+  <footer class="up" style="--d:13">
+    <span class="addr">Galeria do Edifício Green Park Center<br>Rua 20 Norte — Águas Claras, Brasília&nbsp;-&nbsp;DF</span>
+    © 2026 Cozinha do Rubbinho
+  </footer>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var els = document.querySelectorAll('.up');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(e){ e.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold:0.12, rootMargin:'0px 0px -30px 0px' });
+  els.forEach(function(e){ io.observe(e); });
+  // rede de segurança: se algo impedir o observer, revela tudo
+  setTimeout(function(){ els.forEach(function(e){ e.classList.add('in'); }); }, 2500);
+})();
+</script>
+</body>
+</html>
